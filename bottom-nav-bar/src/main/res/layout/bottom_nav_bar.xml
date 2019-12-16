@@ -75,7 +75,7 @@
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="SUPPORT"
+                tools:text="SEARCH"
                 android:textSize="12sp"
                 android:id="@+id/textViewBar2"
                 android:textColor="@color/colorNavAccentUnselected"/>

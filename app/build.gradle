@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "me.riddhimanadib.bottomnavbar"
         minSdkVersion 16
@@ -20,6 +19,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile project(path: ':bottom-nav-bar')
+    implementation 'com.android.support:appcompat-v7:25.3.0'
+    implementation project(path: ':bottom-nav-bar')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
