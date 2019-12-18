@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Adib on 13-Apr-17.
@@ -36,11 +37,14 @@ public class SearchFragment extends Fragment {
 //                listener.onClicked();
 //            }
 //        });
+        final TextView text = (TextView) view.findViewById(R.id.editText);
         Button btn = (Button) view.findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(),Results.class);
+                String givenText = text.getText().toString();
+                in.putExtra("text",givenText);
                 startActivity(in);
             }
         });
