@@ -1,8 +1,9 @@
 package me.riddhimanadib.bottomnavbar;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
