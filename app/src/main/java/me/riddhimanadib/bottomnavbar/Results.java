@@ -2,12 +2,11 @@ package me.riddhimanadib.bottomnavbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +31,11 @@ public class Results extends AppCompatActivity {
     public static String MOVIE_NAME ="";
     public static boolean ADULT = false;
 
-    private TextView myTextView;
-    private TextView myTextView2;
-    private TextView myTextView3;
-    private ImageView myImage;
-
     //vars
-    private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
+    private ArrayList<String> title = new ArrayList<>();
+    private ArrayList<String> imageUrl = new ArrayList<>();
+    private ArrayList<String> releaseDate = new ArrayList<>();
+    private ArrayList<String> overview = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,62 +43,20 @@ public class Results extends AppCompatActivity {
         Log.d(TAG, "onCreate: started.");
 
 
-
-//        myTextView = (TextView) findViewById(R.id.title);
-//        myTextView2 = (TextView) findViewById(R.id.release_date);
-//        myTextView3 = (TextView) findViewById(R.id.overview);
-//
-//        myImage  =(ImageView) findViewById(R.id.image_view);
-
-
-
         Intent intent = getIntent();
         String name = intent.getStringExtra("text");
         MOVIE_NAME = name;
 
 
-        initImageBitmaps();
+        searchMovies();
     }
 
-    private void initImageBitmaps(){
-        Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
-        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
-        mNames.add("Havasu Falls");
-
-        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNames.add("Trondheim");
-
-        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-        mNames.add("Portugal");
-
-        mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
-        mNames.add("Rocky Mountain National Park");
-
-
-        mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
-        mNames.add("Mahahual");
-
-        mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
-        mNames.add("Frozen Lake");
-
-
-        mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
-        mNames.add("White Sands Desert");
-
-        mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
-        mNames.add("Austrailia");
-
-        mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
-        mNames.add("Washington");
-
-        initRecyclerView();
-    }
 
     private void initRecyclerView(){
         Log.d(TAG, "initRecyclerView: init recyclerview.");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, title, imageUrl,releaseDate,overview);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -122,18 +76,16 @@ public class Results extends AppCompatActivity {
             public void onResponse(Call<MovieResults> call, Response<MovieResults> response) {
                 MovieResults results = response.body();
                 List<MovieResults.ResultsBean> listOfMovies = results.getResults();
-                MovieResults.ResultsBean firstMovie = listOfMovies.get(0);
+                for(int i =0; i<listOfMovies.size(); i++)
+                {
+                    title.add(listOfMovies.get(i).getTitle());
+                    imageUrl.add(BASE_IMAGE_URL+listOfMovies.get(i).getPoster_path());
+                    releaseDate.add(listOfMovies.get(i).getRelease_date());
+                    overview.add(listOfMovies.get(i).getOverview());
+                }
+                initRecyclerView();
 
-//                for( MovieResults.ResultsBean m : listOfMovies) {
-//                    //Movie movie = new Movie(m.getTitle(),m.getRelease_date(),m.getPoster_path(),m.getOverview());
-//                    movieList.add(new Movie(m.getTitle(),m.getRelease_date(),m.getPoster_path(),m.getOverview()));
-//                }
 
-//                myTextView.setText(movieList.get(1).getTitle());
-//                myTextView2.setText(movieList.get(1).getReleaseDate());
-//                myTextView3.setText(movieList.get(1).getOverview());
-//                String url = BASE_IMAGE_URL+movieList.get(1).getUrlImage();
-//                Picasso.get().load(url).into(myImage);
             }
 
             @Override
@@ -163,7 +115,6 @@ public class Results extends AppCompatActivity {
                 MovieResults results = response.body();
                 List<MovieResults.ResultsBean> listOfMovies = results.getResults();
                 MovieResults.ResultsBean firstMovie = listOfMovies.get(0);
-                myTextView.setText(firstMovie.getTitle());
             }
 
             @Override

@@ -20,6 +20,7 @@
         <activity android:name="me.riddhimanadib.library.BottomBarHolderActivity"></activity>
         <activity android:name=".Results"></activity>
         <activity android:name=".SearchFragment" />
+        <activity android:name=".GalleryActivity"/>
 
     </application>
 

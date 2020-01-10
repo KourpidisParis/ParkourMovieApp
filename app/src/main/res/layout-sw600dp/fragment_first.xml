@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/colorDarkRed"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="288dp"
+            android:layout_height="98dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/cinema"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/odeon"
+            android:layout_width="199dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="128dp"
+            android:background="@drawable/btn_cinema"
+            android:text="ODEON PLATEIA"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <Button
+            android:id="@+id/village"
+            android:layout_width="199dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_cinema"
+            android:text="VILLAGE COSMOS"
+            app:layout_constraintEnd_toEndOf="@+id/odeon"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/odeon"
+            app:layout_constraintTop_toBottomOf="@+id/odeon" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="349dp"
+            android:layout_height="440dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:srcCompat="@drawable/ellipse1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
