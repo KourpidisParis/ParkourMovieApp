@@ -21,6 +21,12 @@
         <activity android:name=".Results"></activity>
         <activity android:name=".SearchFragment" />
         <activity android:name=".GalleryActivity"/>
+        <activity android:name=".Village.VillageCosmos"/>
+        <activity android:name=".Cineplexx.Cineplexx"/>
+        <activity android:name=".Cineplexx.DetailsCineplexx"/>
+        <activity android:name=".Village.DetailsVillage"></activity>
+        <activity android:name=".Popular.PopularMovies"></activity>
+
 
     </application>
 

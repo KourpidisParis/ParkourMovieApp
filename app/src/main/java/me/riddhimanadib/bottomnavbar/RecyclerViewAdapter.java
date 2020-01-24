@@ -83,17 +83,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView image;
-        TextView imageName;
-        RelativeLayout parentLayout;
-        TextView date;
+        public CircleImageView image;
+        public TextView imageName;
+        public RelativeLayout parentLayout;
+        public TextView date;
 
         public ViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
-            imageName = itemView.findViewById(R.id.image_name);
+            imageName = itemView.findViewById(R.id.movie_village2);
             date = itemView.findViewById(R.id.date);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }

@@ -1,4 +1,4 @@
-package me.riddhimanadib.bottomnavbar;
+package me.riddhimanadib.bottomnavbar.Popular;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.riddhimanadib.bottomnavbar.Popular.ApiInterface;
+import me.riddhimanadib.bottomnavbar.MovieResults;
+import me.riddhimanadib.bottomnavbar.R;
+import me.riddhimanadib.bottomnavbar.RecyclerViewAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Results extends AppCompatActivity {
+public class PopularMovies extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
 
@@ -49,7 +51,7 @@ public class Results extends AppCompatActivity {
         MOVIE_NAME = name;
 
 
-        searchMovies();
+        PopularMovies();
     }
 
 
@@ -62,41 +64,6 @@ public class Results extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-
-    public void searchMovies(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ApiInterface2 myInterface = retrofit.create(ApiInterface2.class);
-
-        Call<MovieResults> call = myInterface.listOfMovies(API_KEY,LANGUAGE,MOVIE_NAME,PAGE,ADULT);
-        call.enqueue(new Callback<MovieResults>() {
-            @Override
-            public void onResponse(Call<MovieResults> call, Response<MovieResults> response) {
-                MovieResults results = response.body();
-                List<MovieResults.ResultsBean> listOfMovies = results.getResults();
-                for(int i =0; i<listOfMovies.size(); i++)
-                {
-                    title.add(listOfMovies.get(i).getTitle());
-                    imageUrl.add(BASE_IMAGE_URL+listOfMovies.get(i).getPoster_path());
-                    releaseDate.add(listOfMovies.get(i).getRelease_date());
-                    overview.add(listOfMovies.get(i).getOverview());
-                }
-                initRecyclerView();
-
-
-            }
-
-            @Override
-            public void onFailure(Call<MovieResults> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-
-    }
 
 
     public void PopularMovies(){
@@ -115,7 +82,14 @@ public class Results extends AppCompatActivity {
             public void onResponse(Call<MovieResults> call, Response<MovieResults> response) {
                 MovieResults results = response.body();
                 List<MovieResults.ResultsBean> listOfMovies = results.getResults();
-                MovieResults.ResultsBean firstMovie = listOfMovies.get(0);
+                for(int i =0; i<listOfMovies.size(); i++)
+                {
+                    title.add(listOfMovies.get(i).getTitle());
+                    imageUrl.add(BASE_IMAGE_URL+listOfMovies.get(i).getPoster_path());
+                    releaseDate.add(listOfMovies.get(i).getRelease_date());
+                    overview.add(listOfMovies.get(i).getOverview());
+                }
+                initRecyclerView();
             }
 
             @Override
@@ -129,3 +103,8 @@ public class Results extends AppCompatActivity {
     }
 
 }
+
+
+
+
+

@@ -1,5 +1,6 @@
-package me.riddhimanadib.bottomnavbar;
+package me.riddhimanadib.bottomnavbar.Popular;
 
+import me.riddhimanadib.bottomnavbar.MovieResults;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

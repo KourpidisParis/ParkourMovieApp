@@ -4,14 +4,13 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="15dp"
-    android:id="@+id/parent_layout">
+    android:id="@+id/parent_layout2">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/image"
-        android:src = "@drawable/logo_village_cinema"></de.hdodenhof.circleimageview.CircleImageView>
-<!--        android:src="@mipmap/ic_launcher"/>-->
+        android:src="@drawable/logo_village_cinema"/>
 
     <TextView
         android:layout_width="wrap_content"

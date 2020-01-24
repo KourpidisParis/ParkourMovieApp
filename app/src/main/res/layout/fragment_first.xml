@@ -26,17 +26,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/odeon"
+                android:id="@+id/cplxx"
                 android:layout_width="199dp"
                 android:layout_height="73dp"
                 android:layout_marginTop="128dp"
                 android:background="@drawable/btn_cinema"
-                android:text="ODEON PLATEIA"
+                android:text="CINEPLEXX"
                 android:textColor="@color/colorBlack"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                app:layout_constraintStart_toStartOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="@+id/imageView3" />
+                app:layout_constraintEnd_toEndOf="@+id/image"
+                app:layout_constraintStart_toStartOf="@+id/image"
+                app:layout_constraintTop_toTopOf="@+id/image" />
 
             <Button
                 android:id="@+id/village"
@@ -47,22 +47,22 @@
                 android:text="VILLAGE COSMOS"
                 android:textColor="@color/colorBlack"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/odeon"
+                app:layout_constraintEnd_toEndOf="@+id/cplxx"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/odeon"
-                app:layout_constraintTop_toBottomOf="@+id/odeon" />
+                app:layout_constraintStart_toStartOf="@+id/cplxx"
+                app:layout_constraintTop_toBottomOf="@+id/cplxx" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/image"
                 android:layout_width="349dp"
                 android:layout_height="440dp"
+                android:bottomLeftRadius="50dip"
+                android:bottomRightRadius="50dip"
+                android:topLeftRadius="50dip"
+                android:topRightRadius="50dip"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                android:bottomRightRadius="50dip"
-                android:bottomLeftRadius="50dip"
-                android:topRightRadius="50dip"
-                android:topLeftRadius="50dip"
                 app:srcCompat="@drawable/ellipse1" />
 
             <TextView
@@ -76,7 +76,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.529"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

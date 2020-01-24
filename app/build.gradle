@@ -41,4 +41,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     // image circleview
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+    // import jsoup for web scraping
+    implementation 'org.jsoup:jsoup:1.12.1'
 }

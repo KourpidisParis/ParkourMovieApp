@@ -27,6 +27,20 @@ public class GalleryActivity extends AppCompatActivity {
         getIncomingIntent();
     }
 
+
+//    private View.OnClickListener btnListener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            TextView txtName = findViewById(R.id.image_description);
+//            String name = txtName.getText().toString();
+//            new database().addItem(name);
+//            Toast.makeText(GalleryActivity.this,"Clicked", Toast.LENGTH_SHORT).show();
+//
+//        }
+//    };
+
+
+
     private void getIncomingIntent(){
         Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
 
