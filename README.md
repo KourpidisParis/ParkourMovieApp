@@ -1,4 +1,4 @@
 # Movie App
 
-## see what is playing now in the cinemas of thessaloniki
-![Screenshot](img1.png)
+## See what is playing now in the cinemas of thessaloniki
+![Screenshot](img1.png | width=100)
